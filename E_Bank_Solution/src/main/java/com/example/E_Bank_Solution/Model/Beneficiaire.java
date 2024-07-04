@@ -17,7 +17,7 @@ public class Beneficiaire {
     private Integer beneficiaireId ;
     private String nameOfbeneficaire ;
     private String account_number ;
-    private TypeBank TypeOfbank ;
+    private TypeBank typeOfbank ;
 
 
     @ManyToOne

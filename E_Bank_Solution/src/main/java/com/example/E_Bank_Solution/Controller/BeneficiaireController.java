@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 
 
-
-
 @RestController
 public class BeneficiaireController {
     @Autowired

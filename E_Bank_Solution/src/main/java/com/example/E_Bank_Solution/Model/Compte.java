@@ -22,6 +22,7 @@ public class Compte {
     private accountType account_type;
     private Double solde ;
     private Date date_creation;
+    private boolean StatusOfCompte;
 
 
     @ManyToOne

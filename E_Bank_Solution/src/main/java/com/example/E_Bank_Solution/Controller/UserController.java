@@ -1,25 +1,39 @@
 package com.example.E_Bank_Solution.Controller;
 
-import com.example.E_Bank_Solution.Model.Beneficiaire;
+
 import com.example.E_Bank_Solution.Model.User;
-import com.example.E_Bank_Solution.Service.CompteService;
 import com.example.E_Bank_Solution.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@CrossOrigin("*")
+@RequestMapping("/api/user")
 public class UserController {
 
-
     @Autowired
-    private UserService userservice;
+    private UserService userService;
 
-    @PostMapping("/addUser")
-    public User addUser(@RequestBody User user1){
-        return userservice.addUser(user1);
+    @GetMapping("/all")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
+    @PostMapping("/add")
+    public void addUser(@RequestBody User user) {
+        userService.saveUser(user);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public void updateUser(@PathVariable Long id, @RequestBody User user) {
+        userService.updateUser(id, user);
+    }
 }

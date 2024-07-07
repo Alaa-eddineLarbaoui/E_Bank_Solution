@@ -11,18 +11,18 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/all")
+    @GetMapping("/getAll")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/addUser")
     public void addUser(@RequestBody User user) {
         userService.saveUser(user);
     }

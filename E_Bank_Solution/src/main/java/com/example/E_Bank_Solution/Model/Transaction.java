@@ -20,8 +20,13 @@ public class Transaction {
     private Date dateTransaction;
     private LocalDateTime heureTransaction;
     private double montant;
+
+    @Enumerated (EnumType.STRING)
     private type_transaction typeTransaction;
+
     private String description;
+
+    @Enumerated (EnumType.STRING)
     private transaction_for transactionFor;
 
 

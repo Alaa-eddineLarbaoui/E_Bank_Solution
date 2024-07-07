@@ -17,12 +17,18 @@ import java.util.List;
 public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer accountId;
+    private long accountId;
     private String account_number;
+
+    @Enumerated (EnumType.STRING)
     private accountType account_type;
+
     private Double solde ;
     private Date date_creation;
-    private boolean StatusOfCompte;
+    private Boolean accountClosed = false;
+    private String raisonClosing;
+
+
 
 
     @ManyToOne

@@ -17,11 +17,12 @@ public class Beneficiaire {
     private Integer beneficiaireId ;
     private String nameOfbeneficaire ;
     private String account_number ;
+
+    @Enumerated (EnumType.STRING)
     private TypeBank typeOfbank ;
 
 
     @ManyToOne
-    @JoinColumn(name = "accountId")
+    @JoinColumn(name = "accountId", referencedColumnName = "accountId")
     private Compte compte;
-
 }

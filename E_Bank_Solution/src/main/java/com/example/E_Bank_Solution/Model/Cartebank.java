@@ -22,8 +22,13 @@ public class Cartebank {
     private Integer carteId ;
     private String cardNumber;
     private Date expirationDate ;
+
+    @Enumerated (EnumType.STRING)
     private card_type cardType;
+
+    @Enumerated (EnumType.STRING)
     private status_card statusCard;
+
     private String reason_of_blockage ;
 
     @ManyToOne

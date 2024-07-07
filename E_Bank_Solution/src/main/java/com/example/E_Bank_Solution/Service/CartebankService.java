@@ -44,4 +44,17 @@ public class CartebankService {
     private Date generateExpirationDate() {
         return new Date(System.currentTimeMillis() + (5L * 365 * 24 * 60 * 60 * 1000));
     }
+    public Cartebank activateOrDeactivateBankCard(Long bankCardId, boolean activate) {
+        Cartebank bankCard = bankCardRepository.findById(bankCardId)
+                .orElseThrow(BankCardNotFoundException::new);
+
+        if (activate) {
+            bankCard.setStatusCard(status_card.ACTIVATED);
+        } else {
+            bankCard.setStatusCard(status_card.INACTIVATED);
+        }
+
+        bankCardRepository.save(bankCard);
+        return bankCard;
+    }
 }

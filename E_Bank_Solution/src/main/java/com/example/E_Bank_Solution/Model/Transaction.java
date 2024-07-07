@@ -37,9 +37,5 @@ public class Transaction {
     private Compte compte;
 
 
-    @ManyToOne
-    @JoinColumn(name = "beneficiaireId")
-    private Beneficiaire  beneficiaire;
-
 
 }

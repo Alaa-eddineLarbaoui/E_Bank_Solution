@@ -6,7 +6,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -17,8 +20,8 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer transactionId;
-    private Date dateTransaction;
-    private LocalDateTime heureTransaction;
+    private LocalDate dateTransaction;
+    private LocalTime heureTransaction;
     private double montant;
 
     @Enumerated (EnumType.STRING)
@@ -35,7 +38,10 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "accountId")
     private Compte compte;
+    @ManyToOne
 
+    @JoinColumn(name = "beneficiaireId")
+    private Beneficiaire beneficiaire;
 
 
 }

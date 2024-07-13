@@ -6,6 +6,7 @@ import com.example.E_Bank_Solution.Service.CartebankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.security.auth.login.AccountNotFoundException;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class CartebankController {
     }
 
     @PostMapping("/add/{accountId}")
-    public Cartebank createBankCard(@PathVariable Long accountId, @RequestBody Cartebank bankCard) {
+    public Cartebank createBankCard(@PathVariable Long accountId, @RequestBody Cartebank bankCard) throws AccountNotFoundException {
         return bankCardService.addBankCard(accountId, bankCard);
     }
 

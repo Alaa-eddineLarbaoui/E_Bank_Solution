@@ -17,6 +17,7 @@ public class CompteController {
     @Autowired
     private CompteService comptService;
 
+
     @GetMapping("/getAll/{userId}")
     public List<Compte> getAllAccounts(@PathVariable Long userId) {
         return comptService.getAllAccounts(userId);
@@ -33,7 +34,8 @@ public class CompteController {
     }
 
     @DeleteMapping("/delete/{userId}")
-    public void deleteAccount(@PathVariable Long accountId) {
+    public void deleteAccount(@PathVariable Long accountId ) {
+
         comptService.deleteAccount(accountId);
     }
 

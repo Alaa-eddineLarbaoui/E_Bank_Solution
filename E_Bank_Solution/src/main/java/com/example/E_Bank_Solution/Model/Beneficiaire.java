@@ -1,10 +1,13 @@
 package com.example.E_Bank_Solution.Model;
 import com.example.E_Bank_Solution.Enums.TypeBank;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,4 +28,9 @@ public class Beneficiaire {
     @ManyToOne
     @JoinColumn(name = "accountId", referencedColumnName = "accountId")
     private Compte compte;
+    @OneToMany (mappedBy = "beneficiaire")
+    @JsonIgnore
+    private List<Transaction> transactions;
+
+
 }

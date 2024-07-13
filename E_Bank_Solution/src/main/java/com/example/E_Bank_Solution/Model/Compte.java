@@ -17,7 +17,7 @@ import java.util.List;
 public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long accountId;
+    private  Long accountId;
     private String account_number;
 
     @Enumerated (EnumType.STRING)

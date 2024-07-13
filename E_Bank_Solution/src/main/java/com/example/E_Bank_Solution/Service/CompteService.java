@@ -1,7 +1,6 @@
 package com.example.E_Bank_Solution.Service;
 
 
-import com.example.E_Bank_Solution.Model.Cartebank;
 import com.example.E_Bank_Solution.Model.Compte;
 
 import com.example.E_Bank_Solution.Model.User;
@@ -30,6 +29,9 @@ public class CompteService {
         return accountRepository.findAllAccountsByUserId(userId);
     }
 
+    public Compte getAccountById(Long accountId) {
+        return accountRepository.findById(accountId).orElseThrow();
+    }
     public Compte createAccount(Long userId, Compte account) {
         User user =userservice.getUserById(userId);
 
@@ -82,7 +84,12 @@ public class CompteService {
     }
 
     public  void deleteAccount(Long accountId) {
+        bankCardService.deletecarte(accountId);
         accountRepository.deleteById(accountId);
     }
-
+    public void updateSolde(Long id, Double solde) {
+       Compte compte = accountRepository.findById(id).orElseThrow(() -> new RuntimeException("not found"));
+       compte.setSolde(solde);
+       accountRepository.save(compte);
+    }
 }

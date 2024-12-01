@@ -11,11 +11,15 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository; // Dépendance vers le repository des utilisateurs
+    private final UserRepository userRepository; // Dépendance vers le repository des utilisateurs
 
-    @Autowired
+    final
     BCryptPasswordEncoder passwordEncoder; // Dépendance pour encoder le mot de passe
+
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     /**
      * Cette méthode permet de récupérer tous les utilisateurs.

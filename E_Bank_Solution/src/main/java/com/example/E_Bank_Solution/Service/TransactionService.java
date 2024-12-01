@@ -14,10 +14,14 @@ import java.util.Optional;
 @Service
 public class TransactionService {
 
-@Autowired
-private CompteService compteSrv;
-@Autowired
-private TransactionRepository transactionRepository;
+
+    private final CompteService compteSrv;
+    private final TransactionRepository transactionRepository;
+
+    public TransactionService(CompteService compteSrv, TransactionRepository transactionRepository) {
+        this.compteSrv = compteSrv;
+        this.transactionRepository = transactionRepository;
+    }
 
 
     public String addTransaction(Long idCompte, Transaction transaction) {

@@ -12,14 +12,17 @@ import java.util.Random;
 @Service
 public class CompteService {
 
-    @Autowired
-    private CompteRepository accountRepository;
+    private final CompteRepository accountRepository;
 
-    @Autowired
-    private CartebankService bankCardService;
+    private final CartebankService bankCardService;
 
-    @Autowired
-    private UserService userservice;
+    private final UserService userservice;
+
+    public CompteService(CompteRepository accountRepository, CartebankService bankCardService, UserService userservice) {
+        this.accountRepository = accountRepository;
+        this.bankCardService = bankCardService;
+        this.userservice = userservice;
+    }
 
     /**
      * Retrieves all accounts associated with a specific user.

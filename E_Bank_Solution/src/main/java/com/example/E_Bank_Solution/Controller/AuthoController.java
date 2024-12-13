@@ -18,11 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AuthoController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     private AuthenticationManager authenticate;
+
+    public AuthoController(UserService userService) {
+        this.userService = userService;
+    }
 
     /**
      * Endpoint for user signup.

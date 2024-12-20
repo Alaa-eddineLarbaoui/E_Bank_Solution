@@ -15,8 +15,12 @@ import java.util.ArrayList;
 @Service
 public class BeneficiaireService {
 
-    @Autowired
+    final
     BeneficiaireRepository beneficiaireRepository;
+
+    public BeneficiaireService(BeneficiaireRepository beneficiaireRepository) {
+        this.beneficiaireRepository = beneficiaireRepository;
+    }
 
     /**
      * Ajoute un nouveau bénéficiaire dans la base de données.
